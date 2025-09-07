@@ -1,0 +1,531 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* Colores Paraguay */
+:root {
+  --paraguay-red: #D52B1E;
+  --paraguay-blue: #0038A8;
+  --paraguay-white: #FFFFFF;
+  --dark-gray: #2c3e50;
+  --light-gray: #f8f9fa;
+  --accent-color: #e74c3c;
+}
+
+/* Header */
+header {
+  background: linear-gradient(135deg, var(--paraguay-blue), var(--paraguay-red));
+  color: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
+}
+
+/* Alto fijo del contenido del header */
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  /* sin padding vertical */
+  height: 72px;
+  /* ← controla el alto del header */
+}
+.logoimg img {
+  height: 72px;
+  /* tamaño visible del logo */
+  max-height: calc(72px - 8px);
+  /* margen de seguridad */
+  width: auto;
+  display: block;
+}
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+}
+
+.header-contact {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.header-contact a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.3s;
+}
+
+.header-contact a:hover {
+  opacity: 0.8;
+}
+
+/* Hero Section */
+
+
+.hero {
+  position: relative;
+  margin-top: 72px;
+  /* separa el hero del header fijo */
+  background: #fff;
+  /* fondo por si la imagen tiene transparencia */
+}
+
+.hero-img {
+  width: 100%;
+  height: auto;
+  /* ← muestra la imagen completa sin recortar */
+  display: block;
+}
+
+/* CTA centrado sobre la imagen */
+.hero-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+/* (Opcional) Sombra suave para legibilidad del CTA */
+.cta-button {
+  display: inline-block;
+  background: #fff;
+  color: var(--paraguay-blue);
+  padding: 15px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, .15);
+}
+
+/* Responsive */
+@media (max-width:768px) {
+  .header-content {
+    height: 64px;
+  }
+
+  .logoimg img {
+    height: 48px;
+  }
+
+  .cta-button {
+    padding: 12px 22px;
+    font-size: 1rem;
+  }
+}
+/* Carrusel */
+.product-carousel {
+  margin: 24px auto 60px;
+  max-width: 1200px;
+  padding: 0 1rem;
+}
+
+.carousel-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--dark-gray);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.carousel-viewport {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+}
+
+.carousel-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc(25% - 12px);
+  /* 4 cards en desktop */
+  gap: 16px;
+  padding: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.product-card-mini {
+  scroll-snap-align: start;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .2s ease, box-shadow .2s ease;
+  cursor: pointer;
+}
+
+.product-card-mini:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, .12);
+}
+
+.product-thumb {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  background: #f6f7f9;
+}
+
+.product-info-mini {
+  padding: 10px 12px 14px;
+  display: grid;
+  gap: 6px;
+}
+
+.product-name {
+  font-size: .95rem;
+  font-weight: 700;
+  color: #2c2c2c;
+  line-height: 1.2;
+  min-height: 2.3em;
+}
+
+.product-price {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--paraguay-blue);
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .15);
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 42px;
+  text-align: center;
+  color: #3b3b3b;
+  z-index: 2;
+}
+
+.carousel-btn:hover {
+  background: #f1f1f1;
+}
+
+.carousel-btn.prev {
+  left: 8px;
+}
+
+.carousel-btn.next {
+  right: 8px;
+}
+
+/* Responsive: 3, 2, 1 tarjetas */
+@media (max-width: 1024px) {
+  .carousel-track {
+    grid-auto-columns: calc(33.333% - 11px);
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-track {
+    grid-auto-columns: calc(50% - 8px);
+  }
+}
+
+@media (max-width: 520px) {
+  .carousel-track {
+    grid-auto-columns: 100%;
+  }
+}
+
+/* Servicios */
+.services {
+  padding: 80px 0;
+  background: var(--light-gray);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: var(--dark-gray);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.service-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+  border-top: 4px solid var(--paraguay-red);
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.service-icon {
+  font-size: 3rem;
+  color: var(--paraguay-blue);
+  margin-bottom: 1rem;
+}
+
+.service-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: var(--dark-gray);
+}
+
+/* Ventajas */
+.advantages {
+  padding: 80px 0;
+  background: white;
+}
+
+.advantages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.advantage-item {
+  text-align: center;
+  padding: 2rem;
+}
+
+.advantage-icon {
+  font-size: 2.5rem;
+  color: var(--paraguay-red);
+  margin-bottom: 1rem;
+}
+
+.advantage-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--dark-gray);
+}
+
+/* Contacto */
+.contact {
+  padding: 80px 0;
+  background: linear-gradient(135deg, var(--light-gray) 0%, white 100%);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.contact-info {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: var(--light-gray);
+  border-radius: 10px;
+}
+
+.contact-item i {
+  font-size: 1.5rem;
+  color: var(--paraguay-blue);
+  margin-right: 1rem;
+  width: 30px;
+}
+
+.contact-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: var(--dark-gray);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--paraguay-blue);
+}
+
+.submit-btn {
+  background: var(--paraguay-blue);
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+  width: 100%;
+}
+
+.submit-btn:hover {
+  background: var(--paraguay-red);
+}
+
+/* Mapa */
+.map-section {
+  padding: 60px 0;
+  background: var(--dark-gray);
+  color: white;
+  text-align: center;
+}
+
+.map-container {
+  margin-top: 2rem;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* WhatsApp flotante */
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 20px;
+  right: 20px;
+  background: #25d366;
+  color: white;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 1.8rem;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  animation: pulse 2s infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.whatsapp-float:hover {
+  background: #128c7e;
+  color: white;
+}
+
+/* Footer */
+footer {
+  background: var(--dark-gray);
+  color: white;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .header-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .header-contact {
+    gap: 1rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .advantages-grid {
+    grid-template-columns: 1fr;
+  }
+}
