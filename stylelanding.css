@@ -131,7 +131,7 @@ header {
     font-size: 1rem;
   }
 }
-/* Carrusel */
+/* Carrusel – contenedor y título (faltaban) */
 .product-carousel {
   margin: 24px auto 60px;
   max-width: 1200px;
@@ -146,47 +146,7 @@ header {
   margin-bottom: 1rem;
 }
 
-.carousel-viewport {
-  position: relative;
-  overflow: hidden;
-  border-radius: 16px;
-  background: #fff;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
-}
-
-.carousel-track {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: calc(25% - 12px);
-  /* 4 cards en desktop */
-  gap: 16px;
-  padding: 16px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-}
-
-.carousel-track::-webkit-scrollbar {
-  display: none;
-}
-
-.product-card-mini {
-  scroll-snap-align: start;
-  background: #fff;
-  border: 1px solid #eee;
-  border-radius: 14px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform .2s ease, box-shadow .2s ease;
-  cursor: pointer;
-}
-
-.product-card-mini:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, .12);
-}
-
+/* Tarjeta – partes internas (faltaban) */
 .product-thumb {
   width: 100%;
   aspect-ratio: 4/3;
@@ -213,53 +173,70 @@ header {
   font-weight: 800;
   color: var(--paraguay-blue);
 }
+/* Viewport igual */
+.carousel-viewport{
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+  }
 
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  border: none;
+/* 🔁 TRACK en FLEX, sin snap */
+.carousel-track {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+  will-change: scroll-position;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* 🔒 Cada card con ancho fijo (loop suave) */
+.product-card-mini {
+  flex: 0 0 auto;
+  width: 280px;
   background: #fff;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, .15);
-  cursor: pointer;
-  font-size: 24px;
-  line-height: 42px;
-  text-align: center;
-  color: #3b3b3b;
-  z-index: 2;
+  border: 1px solid #eee;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
-.carousel-btn:hover {
-  background: #f1f1f1;
+.product-card-mini:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, .12);
 }
 
-.carousel-btn.prev {
-  left: 8px;
+/* (Opcional) ocultar botones si no los usarás */
+.carousel-btn {
+  display: none;
 }
 
-.carousel-btn.next {
-  right: 8px;
-}
-
-/* Responsive: 3, 2, 1 tarjetas */
+/* Responsive del ancho de tarjeta */
 @media (max-width: 1024px) {
-  .carousel-track {
-    grid-auto-columns: calc(33.333% - 11px);
+  .product-card-mini {
+    width: 240px;
   }
 }
 
 @media (max-width: 768px) {
-  .carousel-track {
-    grid-auto-columns: calc(50% - 8px);
+  .product-card-mini {
+    width: 220px;
   }
 }
 
 @media (max-width: 520px) {
-  .carousel-track {
-    grid-auto-columns: 100%;
+  .product-card-mini {
+    width: 85vw;
   }
 }
 

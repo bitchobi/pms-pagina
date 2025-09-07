@@ -33,23 +33,18 @@
   <!-- Hero Section -->
   <section class="hero">
     <img src="img/baner.png" alt="Banner PMS" class="hero-img">
-    </div>
   </section>
 
   <!-- Carrusel de Productos Destacados -->
   <section class="product-carousel">
-    <h2 class="carousel-title">Ofertas y Destacados</h2>
-
+    <h2 class="carousel-title">Mira nuestros Productos a un solo Click </h2>
     <div class="carousel-viewport">
       <button class="carousel-btn prev" aria-label="Anterior">‹</button>
-
-      <div class="carousel-track" id="productTrack">
-        <!-- Las tarjetas se inyectan por JS -->
-      </div>
-
+      <div class="carousel-track" id="productTrack"></div>
       <button class="carousel-btn next" aria-label="Siguiente">›</button>
     </div>
   </section>
+
   <!-- Servicios -->
   <section class="services">
     <div class="container">
@@ -321,62 +316,79 @@
       el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
       observer.observe(el);
     });
-    // Productos destacados para el carrusel (puedes ampliar/editar)
-    // Los códigos/imagenes están alineados con tu armador (carpeta "imagenes")
-    const destacados = [
-      { codigo: "064", nombre: "Gas Refrigerante R22 13.6kg", precio: 1500000, imagen: "064.jpg" },
-      { codigo: "029", nombre: "Cilindro 7.5m3 O2/Ar/N2", precio: 2400000, imagen: "029.jpg" },
-      { codigo: "020", nombre: "Regulador medicinal c/Humid.", precio: 480000, imagen: "020.jpg" },
-      { codigo: "106", nombre: "Extintor PQS 10kg Nuevo", precio: 350000, imagen: "106.jpg" },
-      { codigo: "071", nombre: "Soporte Universal Ext 9K/18K", precio: 25000, imagen: "071.jpg" },
-      { codigo: "059", nombre: "Aporte Inox ER308L 1.2mm", precio: 130000, imagen: "059.jpg" },
-      { codigo: "023", nombre: "Regulador GLP 10kg/45kg", precio: 330000, imagen: "023.jpg" },
-      { codigo: "047", nombre: "Aceite PAG46+UV 250ml", precio: 75000, imagen: "047.jpg" }
-    ];
+    document.addEventListener('DOMContentLoaded', () => {
+      // Productos destacados
+      const destacados = [
+        { codigo: "064", nombre: "Gas Refrigerante R22 13.6kg", precio: 1500000, imagen: "064.jpg" },
+        { codigo: "029", nombre: "Cilindro 7.5m3 O2/Ar/N2", precio: 2400000, imagen: "029.jpg" },
+        { codigo: "020", nombre: "Regulador medicinal c/Humid.", precio: 480000, imagen: "020.jpg" },
+        { codigo: "106", nombre: "Extintor PQS 10kg Nuevo", precio: 350000, imagen: "106.jpg" },
+        { codigo: "071", nombre: "Soporte Universal Ext 9K/18K", precio: 25000, imagen: "071.jpg" },
+        { codigo: "059", nombre: "Aporte Inox ER308L 1.2mm", precio: 130000, imagen: "059.jpg" },
+        { codigo: "023", nombre: "Regulador GLP 10kg/45kg", precio: 330000, imagen: "023.jpg" },
+        { codigo: "047", nombre: "Aceite PAG46+UV 250ml", precio: 75000, imagen: "047.jpg" }
+      ];
+      const toGs = (n) => n.toLocaleString('es-PY');
 
-    // Render dinámico
-    const track = document.getElementById('productTrack');
-    const toGs = (n) => n.toLocaleString('es-PY');
+      const track = document.getElementById('productTrack');
+      const viewport = document.querySelector('.carousel-viewport');
 
-    destacados.forEach(p => {
-      const card = document.createElement('a');
-      card.className = 'product-card-mini';
-      // Enlaza al armador con parámetro ?producto=CODIGO (luego podemos leerlo allá)
-      card.href = `armador/armador.html?producto=${encodeURIComponent(p.codigo)}`;
-      card.innerHTML = `
-      <img class="product-thumb" src="armador/imagenes/${p.imagen}" alt="${p.nombre}" onerror="this.src='img/placeholder.jpg'">
-      <div class="product-info-mini">
-        <div class="product-name">${p.nombre}</div>
-        <div class="product-price">₲ ${toGs(p.precio)}</div>
-      </div>
-    `;
-      track.appendChild(card);
+      // Render de tarjetas
+      function renderCards(list) {
+        list.forEach(p => {
+          const a = document.createElement('a');
+          a.className = 'product-card-mini';
+          a.href = `armador/armador.html?producto=${encodeURIComponent(p.codigo)}`;
+          a.innerHTML = `
+        <img class="product-thumb" src="armador/imagenes/${p.imagen}" alt="${p.nombre}" onerror="this.src='img/placeholder.jpg'">
+        <div class="product-info-mini">
+          <div class="product-name">${p.nombre}</div>
+          <div class="product-price">₲ ${toGs(p.precio)}</div>
+        </div>
+      `;
+          track.appendChild(a);
+        });
+      }
+
+      // Pintamos y duplicamos una vez
+      renderCards(destacados);
+      if (!track.dataset.looped) {
+        renderCards(destacados);
+        track.dataset.looped = 'true';
+      }
+
+      // Loop continuo
+      let isPaused = false;
+      let speed = 0.6; // ponelo alto para comprobar que se mueve; luego bajá a 0.3–0.35
+
+      // Si querés respetar "reduce motion", descomentá este bloque:
+      // if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      //   speed = 0;
+      // }
+
+      function loop() {
+        if (!isPaused && speed > 0) {
+          track.scrollLeft += speed;
+          if (track.scrollLeft >= (track.scrollWidth / 2)) {
+            track.scrollLeft = 0;
+          }
+        }
+        requestAnimationFrame(loop);
+      }
+
+      const pause = () => { isPaused = true; };
+      const play = () => { isPaused = false; };
+
+      ['mouseenter', 'focusin', 'touchstart', 'pointerenter'].forEach(evt => {
+        viewport.addEventListener(evt, pause, { passive: true });
+      });
+      ['mouseleave', 'focusout', 'touchend', 'pointerleave'].forEach(evt => {
+        viewport.addEventListener(evt, play, { passive: true });
+      });
+
+      track.scrollLeft = 0;
+      loop();
     });
-
-    // Botones de navegación
-    const btnPrev = document.querySelector('.carousel-btn.prev');
-    const btnNext = document.querySelector('.carousel-btn.next');
-
-    const scrollAmount = () => {
-      // Desplaza exactamente el ancho de una card + gap
-      const card = track.querySelector('.product-card-mini');
-      if (!card) return 0;
-      const style = getComputedStyle(track);
-      const gap = parseFloat(style.columnGap || style.gap || 16);
-      return card.getBoundingClientRect().width + gap;
-    };
-
-    btnPrev.addEventListener('click', () => {
-      track.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
-    });
-    btnNext.addEventListener('click', () => {
-      track.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
-    });
-
-    // Auto-play suave (opcional)
-    let auto = setInterval(() => btnNext.click(), 4000);
-    track.addEventListener('mouseenter', () => clearInterval(auto));
-    track.addEventListener('mouseleave', () => auto = setInterval(() => btnNext.click(), 4000));
   </script>
 </body>
 

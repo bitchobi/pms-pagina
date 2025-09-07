@@ -434,7 +434,7 @@
         const imageUrl = `imagenes/${product.imagen}`;
 
         productsGrid.innerHTML += `
-                    <div class="product-card">
+                    <div class="product-card" id="prod-${product.codigo}" data-code="${product.codigo}">
                         <div class="product-image">
                             <img src="${imageUrl}" alt="${product.nombre}" 
                                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
