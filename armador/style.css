@@ -689,3 +689,227 @@ body {
   outline: 3px solid var(--pms-blue);
   animation: flash-ring 1.2s ease-out 2;
 }
+/* ===== NAV unificada (mismo look que el index) ===== */
+.main-nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.main-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: .45rem .9rem;
+  border-radius: 999px;
+  opacity: .95;
+  transition: background .2s, opacity .2s;
+}
+
+.main-nav a:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, .12);
+}
+
+.main-nav a.active {
+  background: rgba(255, 255, 255, .22);
+}
+
+/* Ajuste de alturas para alinear con index (72px aprox) */
+.header {
+  padding: .5rem 0;
+}
+
+.header-content {
+  min-height: 72px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-content {
+    gap: .5rem;
+  }
+
+  .main-nav a {
+    padding: .35rem .7rem;
+    font-weight: 600;
+  }
+}
+/* ====== HEADER UNIFICADO (ARMADOR) ====== */
+:root {
+  --brand-primary: #0F2857;
+}
+
+/* usa el mismo valor que en stylelanding.css */
+
+.site-header {
+  background: var(--brand-primary);
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .08);
+}
+
+/* ==== Ajuste de espaciado en el header ==== */
+.site-header .header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  /* ← más aire a los costados */
+  height: 72px;
+}
+
+.header-left nav {
+  display: flex;
+  gap: 2rem;
+  /* ← más separación entre Inicio y Nuestros productos */
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  /* ← separa íconos y textos de contacto/carrito */
+}
+.logo-icon {
+  width: 44px;
+  height: 44px;
+  background: #fff;
+  color: var(--pms-red);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+.header-info h1,
+.header-info p {
+  margin: 0;
+  line-height: 1.1;
+  color: #fff;
+}
+
+.header-info h1 {
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.header-info p {
+  font-size: .85rem;
+  opacity: .9;
+}
+
+/* nav */
+.main-nav {
+  gap: 10px;
+}
+
+.main-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  padding: .45rem .9rem;
+  border-radius: 999px;
+  opacity: .95;
+  transition: background .2s, opacity .2s;
+}
+
+.main-nav a:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, .12);
+}
+
+.main-nav a.active {
+  background: rgba(255, 255, 255, .22);
+}
+
+/* acciones derecha */
+.header-actions a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  opacity: .95;
+  padding: .35rem .6rem;
+  border-radius: 10px;
+  transition: background .2s, opacity .2s;
+}
+
+.header-actions a:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, .12);
+}
+
+/* contador carrito acorde al header */
+.cart-counter {
+  background: rgba(255, 255, 255, .18);
+  color: #fff;
+  padding: .45rem .8rem;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  position: relative;
+}
+
+.cart-counter:hover {
+  background: rgba(255, 255, 255, .28);
+}
+
+.cart-count {
+  background: #ff3b30;
+  color: #fff;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .75rem;
+  font-weight: 800;
+  position: absolute;
+  top: -6px;
+  right: -6px;
+}
+
+/* empuje del contenido por header fijo */
+.main-content {
+  margin-top: 90px;
+}
+
+/* 72px + margen respiración */
+
+/* Responsive */
+@media (max-width:768px) {
+  .site-header .header-content {
+    height: 64px;
+    padding: 0 12px;
+    gap: .5rem;
+  }
+
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+    font-size: .95rem;
+  }
+
+  .header-info h1 {
+    font-size: 1.05rem;
+  }
+
+  .header-info p {
+    font-size: .8rem;
+  }
+
+  .main-nav a {
+    padding: .35rem .7rem;
+    font-weight: 700;
+  }
+}
