@@ -42,15 +42,135 @@
     <img src="img/baner.png" alt="Banner PMS" class="hero-img">
   </section>
 
-  <!-- Carrusel de Productos Destacados -->
-  <section class="product-carousel">
-    <h2 class="carousel-title">Mira nuestros Productos a un solo Click </h2>
-    <div class="carousel-viewport">
-      <button class="carousel-btn prev" aria-label="Anterior">‹</button>
-      <div class="carousel-track" id="productTrack"></div>
-      <button class="carousel-btn next" aria-label="Siguiente">›</button>
+  <section class="home-categories">
+    <div class="cat-header">
+      <h2 class="section-title">Categorías</h2>
+      <div class="cat-tools">
+        <input id="catSearch" type="search" placeholder="Buscar categoría…" aria-label="Buscar categoría">
+        <button id="toggleCats" aria-expanded="false" aria-controls="catGrid">Ver todas</button>
+      </div>
+    </div>
+
+    <div id="catGrid" class="cat-grid" data-collapsed="true">
+      <!-- Dejá las 8 más importantes arriba; el resto luego. Cambiá imágenes/SLUG a gusto -->
+
+      <!-- 1 -->
+      <a class="cat-card" href="./armador/armador.html?cat=gases-refrigerantes">
+        <div class="cat-thumb"><img src="./img/categorias/gases-refrigerantes.jpg" alt="Gases Refrigerantes"
+            loading="lazy"></div>
+        <div class="cat-name">Gases Refrigerantes</div>
+      </a>
+
+      <!-- 2 -->
+      <a class="cat-card" href="./armador/armador.html?cat=reguladores-manometros">
+        <div class="cat-thumb"><img src="./img/categorias/reguladores-manometros.jpg" alt="Reguladores y Manómetros"
+            loading="lazy"></div>
+        <div class="cat-name">Reguladores y Manómetros</div>
+      </a>
+
+      <!-- 3 -->
+      <a class="cat-card" href="./armador/armador.html?cat=cilindros-tanques">
+        <div class="cat-thumb"><img src="./img/categorias/cilindros-tanques.jpg" alt="Cilindros y Tanques"
+            loading="lazy">
+        </div>
+        <div class="cat-name">Cilindros y Tanques</div>
+      </a>
+
+      <!-- 4 -->
+      <a class="cat-card" href="./armador/armador.html?cat=repuestos-refrigeracion">
+        <div class="cat-thumb"><img src="./img/categorias/repuestos-refrigeracion.jpg" alt="Repuestos Refrigeración"
+            loading="lazy"></div>
+        <div class="cat-name">Repuestos Refrigeración</div>
+      </a>
+
+      <!-- 5 -->
+      <a class="cat-card" href="./armador/armador.html?cat=extintores">
+        <div class="cat-thumb"><img src="./img/categorias/extintores.jpg" alt="Extintores" loading="lazy"></div>
+        <div class="cat-name">Extintores</div>
+      </a>
+
+      <!-- 6 -->
+      <a class="cat-card" href="./armador/armador.html?cat=soldadura-tig">
+        <div class="cat-thumb"><img src="./img/categorias/soldadura-tig.jpg" alt="Soldadura TIG" loading="lazy"></div>
+        <div class="cat-name">Soldadura TIG</div>
+      </a>
+
+      <!-- 7 -->
+      <a class="cat-card" href="./armador/armador.html?cat=soportes-aire">
+        <div class="cat-thumb"><img src="./img/categorias/soportes-aire.jpg" alt="Soportes para Aire" loading="lazy">
+        </div>
+        <div class="cat-name">Soportes para Aire</div>
+      </a>
+
+      <!-- 8 -->
+      <a class="cat-card" href="./armador/armador.html?cat=canerias-cobre">
+        <div class="cat-thumb"><img src="./img/categorias/canerias-cobre.jpg" alt="Cañerías de Cobre" loading="lazy">
+        </div>
+        <div class="cat-name">Cañerías de Cobre</div>
+      </a>
+
+      <!-- --- El resto de categorías va acá abajo (se ocultan al inicio) --- -->
+      <a class="cat-card" href="./armador/armador.html?cat=valvulas-cilindros">
+        <div class="cat-thumb"><img src="./img/categorias/valvulas-cilindros.jpg" alt="Válvulas para Cilindros"
+            loading="lazy"></div>
+        <div class="cat-name">Válvulas para Cilindros</div>
+      </a>
+
+      <a class="cat-card" href="./armador/armador.html?cat=capacitores">
+        <div class="cat-thumb"><img src="./img/categorias/capacitores.jpg" alt="Capacitores" loading="lazy"></div>
+        <div class="cat-name">Capacitores</div>
+      </a>
+
+      <a class="cat-card" href="./armador/armador.html?cat=mangueras-accesorios">
+        <div class="cat-thumb"><img src="./img/categorias/mangueras-accesorios.jpg" alt="Mangueras y Accesorios"
+            loading="lazy"></div>
+        <div class="cat-name">Mangueras y Accesorios</div>
+      </a>
+
+      <a class="cat-card" href="./armador/armador.html?cat=accesorios-varios">
+        <div class="cat-thumb"><img src="./img/categorias/accesorios-varios.jpg" alt="Accesorios Varios" loading="lazy">
+        </div>
+        <div class="cat-name">Accesorios Varios</div>
+      </a>
+
+      <a class="cat-card" href="./armador/armador.html?cat=accesorios-vehiculos">
+        <div class="cat-thumb"><img src="./img/categorias/accesorios-vehiculos.jpg" alt="Accesorios Vehículos"
+            loading="lazy"></div>
+        <div class="cat-name">Accesorios Vehículos</div>
+      </a>
+
+      <a class="cat-card" href="./armador/armador.html?cat=servicios-recarga">
+        <div class="cat-thumb"><img src="./img/categorias/servicios-recarga.jpg" alt="Servicios de Recarga"
+            loading="lazy"></div>
+        <div class="cat-name">Servicios de Recarga</div>
+      </a>
+
+      <a class="cat-card" href="./armador/armador.html?cat=tubos-oxigeno">
+        <div class="cat-thumb"><img src="./img/categorias/tubos-oxigeno.jpg" alt="Tubos de Oxígeno" loading="lazy">
+        </div>
+        <div class="cat-name">Tubos de Oxígeno</div>
+      </a>
+
+      <a class="cat-card" href="./armador/armador.html?cat=tubos-nitrogeno">
+        <div class="cat-thumb"><img src="./img/categorias/tubos-nitrogeno.jpg" alt="Tubos de Nitrógeno" loading="lazy">
+        </div>
+        <div class="cat-name">Tubos de Nitrógeno</div>
+      </a>
+
+      <a class="cat-card" href="./armador/armador.html?cat=tubos-co2">
+        <div class="cat-thumb"><img src="./img/categorias/tubos-co2.jpg" alt="Tubos de CO2" loading="lazy"></div>
+        <div class="cat-name">Tubos de CO2</div>
+      </a>
+
+      <a class="cat-card" href="./armador/armador.html?cat=tubos-argon">
+        <div class="cat-thumb"><img src="./img/categorias/tubos-argon.jpg" alt="Tubos de Argón" loading="lazy"></div>
+        <div class="cat-name">Tubos de Argón</div>
+      </a>
+
+      <!-- Agregá más si hace falta -->
     </div>
   </section>
+
 
   <!-- Servicios -->
   <section class="services">
@@ -396,7 +516,31 @@
       track.scrollLeft = 0;
       loop();
     });
+    // Botón Ver todas / Ver menos
+    const toggle = document.getElementById('toggleCats');
+    const grid = document.getElementById('catGrid');
+    if (toggle && grid) {
+      toggle.addEventListener('click', () => {
+        const collapsed = grid.dataset.collapsed === 'true';
+        grid.dataset.collapsed = collapsed ? 'false' : 'true';
+        toggle.textContent = collapsed ? 'Ver menos' : 'Ver todas';
+        toggle.setAttribute('aria-expanded', String(!collapsed));
+      });
+    }
+
+    // Buscador de categorías
+    const search = document.getElementById('catSearch');
+    if (search && grid) {
+      search.addEventListener('input', (e) => {
+        const q = e.target.value.trim().toLowerCase();
+        grid.querySelectorAll('.cat-card').forEach(card => {
+          const name = card.querySelector('.cat-name').textContent.toLowerCase();
+          card.style.display = name.includes(q) ? '' : 'none';
+        });
+      });
+    }
   </script>
+
 </body>
 
 </html>
