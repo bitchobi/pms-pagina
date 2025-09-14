@@ -29,7 +29,7 @@
         "reguladores-manometros": {
           nombre: "Reguladores y Manómetros",
           descripcion: "Control de presión industrial y medicinal",
-          icon: "fas fa-tachometer-alt",
+          icon: "fas fa-gauge",
           productos: [
             { id: 12, codigo: "012", nombre: "Regulador Presión Oxígeno Industrial", precio: 350000, stock: 200, imagen: "012.jpg" },
             { id: 13, codigo: "013", nombre: "Humidificador Aire Medicinal", precio: 80000, stock: 400, imagen: "013.jpg" },
@@ -62,7 +62,7 @@
         "valvulas-cilindros": {
           nombre: "Válvulas para Cilindros",
           descripcion: "Válvulas especializadas por tipo de gas",
-          icon: "fas fa-valve",
+          icon: "fas fa-faucet",
           productos: [
             { id: 35, codigo: "035", nombre: "Válvula CO2 Cilindro Aluminio", precio: 350000, stock: 100, imagen: "035.jpg" },
             { id: 36, codigo: "036", nombre: "Válvula Cilindro Argón", precio: 250000, stock: 150, imagen: "036.jpg" },
@@ -75,7 +75,7 @@
         "repuestos-radiadores": {
           nombre: "Repuestos Radiadores",
           descripcion: "Chapa, boquillas, fundente, varillas",
-          icon: "fas fa-car",
+          icon: "fas fa-car-side",
           productos: [
             { id: 40, codigo: "040", nombre: "Boquilla Radiador Aluminio", precio: 20000, stock: 5000, imagen: "040.jpg" },
             { id: 41, codigo: "041", nombre: "Boquilla Radiador Bronce 0.9 Bar", precio: 25000, stock: 500, imagen: "041.jpg" },
@@ -89,7 +89,7 @@
         "capacitores": {
           nombre: "Capacitores",
           descripcion: "Capacitores para equipos de refrigeración",
-          icon: "fas fa-battery-half",
+          icon: "fas fa-microchip",
           productos: [
             { id: 50, codigo: "050", nombre: "Capacitor 2.5 MF 380V con ficha", precio: 10000, stock: 1000, imagen: "050.jpg" },
             { id: 51, codigo: "051", nombre: "Capacitor 2.4 MF 380V con cable", precio: 10000, stock: 1000, imagen: "051.jpg" },
@@ -101,7 +101,7 @@
         "cerveza-bar": {
           nombre: "Equipos Cerveza/Bar",
           descripcion: "Conectores, canillas y máquinas",
-          icon: "fas fa-beer",
+          icon: "fas fa-beer-mug-empty",
           productos: [
             { id: 54, codigo: "054", nombre: "Conector Barril Tipo G (Pilsen)", precio: 400000, stock: 100, imagen: "054.jpg" },
             { id: 55, codigo: "055", nombre: "Conector Barril Tipo A (Munich)", precio: 400000, stock: 100, imagen: "055.jpg" },
@@ -114,7 +114,7 @@
         "soldadura-tig": {
           nombre: "Soldadura TIG",
           descripcion: "Aportes, tungstenos y accesorios",
-          icon: "fas fa-fire",
+           icon: "fas fa-fire-flame-curved",
           productos: [
             { id: 28, codigo: "028", nombre: "Juego Pico Soldar con 3 Picos", precio: 480000, stock: 200, imagen: "028.jpg" },
             { id: 27, codigo: "027", nombre: "Lanza Corte Condor con puntera", precio: 750000, stock: 50, imagen: "027.jpg" },
@@ -131,7 +131,7 @@
         "gases-refrigerantes": {
           nombre: "Gases Refrigerantes",
           descripcion: "R22, R134, R410, R404 y más",
-          icon: "fas fa-snowflake",
+          icon: "fas fa-temperature-low",
           productos: [
             { id: 64, codigo: "064", nombre: "Gas Refrigerante R22 13.6kg", precio: 1500000, stock: 100, imagen: "064.jpg" },
             { id: 65, codigo: "065", nombre: "Gas Refrigerante R134 13.6kg", precio: 1450000, stock: 100, imagen: "065.jpg" },
@@ -146,7 +146,7 @@
         "soportes-aire": {
           nombre: "Soportes Aire Acondicionado",
           descripcion: "Soportes universales y originales",
-          icon: "fas fa-wind",
+          icon: "fas fa-fan",
           productos: [
             { id: 71, codigo: "071", nombre: "Soporte Universal Ext 9K/12K/18K BTU", precio: 25000, stock: 100, imagen: "071.jpg" },
             { id: 72, codigo: "072", nombre: "Soporte Universal Int 9K/12K/18K BTU", precio: 30000, stock: 100, imagen: "072.jpg" },
@@ -161,7 +161,7 @@
         "canerias-cobre": {
           nombre: "Cañerías de Cobre",
           descripcion: "Diferentes medidas para instalaciones",
-          icon: "fas fa-pipe",
+           icon: "fas fa-pipe-section",
           productos: [
             { id: 78, codigo: "078", nombre: "Cañería Cobre 3/16", precio: 240000, stock: 50, imagen: "078.jpg" },
             { id: 79, codigo: "079", nombre: "Cañería Cobre 1/4", precio: 255000, stock: 50, imagen: "079.jpg" },
@@ -176,7 +176,7 @@
         "mangueras-accesorios": {
           nombre: "Mangueras y Accesorios",
           descripcion: "Conexiones y tuberías especializadas",
-          icon: "fas fa-link",
+          icon: "fas fa-circle-nodes",
           productos: [
             { id: 85, codigo: "085", nombre: "Manguera doble OXÍGENO/Gas 200mts", precio: 18000, stock: 200, unidad: "metro", imagen: "085.jpg" },
             { id: 86, codigo: "086", nombre: "Manguera Aire 5/16 100mts", precio: 10000, stock: 100, unidad: "metro", imagen: "086.jpg" },
@@ -189,7 +189,7 @@
         "accesorios-varios": {
           nombre: "Accesorios Varios",
           descripcion: "Tuercas, adaptadores y componentes",
-          icon: "fas fa-cogs",
+         icon: "fas fa-screwdriver-wrench",
           productos: [
             { id: 11, codigo: "011", nombre: "PEINE metálico enderezador evaporador", precio: 28000, stock: 100, imagen: "011.jpg" },
             { id: 14, codigo: "014", nombre: "Tuerca Bronce Oxígeno", precio: 70000, stock: 300, imagen: "014.jpg" },
@@ -208,7 +208,7 @@
         "accesorios-vehiculos": {
           nombre: "Accesorios Vehículos",
           descripcion: "Accesorios para vehículos",
-          icon: "fas fa-car-side",
+         icon: "fas fa-car-battery",
           productos: [
             { id: 107, codigo: "107", nombre: "Baliza Doble con estuche plástico", precio: 25000, stock: 1000, imagen: "107.jpg" }
           ]
@@ -238,7 +238,7 @@
         "servicios-recarga": {
           nombre: "Servicios de Recarga",
           descripcion: "Recarga de gases y extintores",
-          icon: "fas fa-sync-alt",
+          icon: "fas fa-arrows-rotate",
           productos: [
             { id: 92, codigo: "092", nombre: "Recarga Oxígeno M3", precio: 35000, stock: null, unidad: "servicio", imagen: "092.jpg" },
             { id: 93, codigo: "093", nombre: "Recarga Argón M3", precio: 130000, stock: null, unidad: "servicio", imagen: "093.jpg" },
@@ -257,7 +257,7 @@
         "tubos-oxigeno": {
           nombre: "Tubos de Oxígeno",
           descripcion: "Tubos/cilindros para oxígeno",
-          icon: "fas fa-gas-pump",
+         icon: "fas fa-lungs",
           productos: [
             { id: 29, codigo: "029", nombre: "Tubo Oxígeno 7.5m3 (Oxígeno/Argón/Nitrógeno)", precio: 2400000, stock: 25, imagen: "029.jpg" },
             { id: 30, codigo: "030", nombre: "Tubo Oxígeno 6m3 + CO2 25kg", precio: 2200000, stock: 50, imagen: "030.jpg" },
@@ -271,7 +271,7 @@
         "tubos-nitrogeno": {
           nombre: "Tubos de Nitrógeno",
           descripcion: "Tubos/cilindros para nitrógeno",
-          icon: "fas fa-gas-pump",
+          icon: "fas fa-vial",
           productos: [
             { id: 29, codigo: "029", nombre: "Tubo Nitrógeno 7.5m3 (Oxígeno/Argón/Nitrógeno)", precio: 2400000, stock: 25, imagen: "029.jpg" },
             { id: 30, codigo: "030", nombre: "Tubo Nitrógeno 6m3 + CO2 25kg", precio: 2200000, stock: 50, imagen: "030.jpg" },
@@ -285,7 +285,7 @@
         "tubos-co2": {
           nombre: "Tubos de CO2",
           descripcion: "Tubos/cilindros para dióxido de carbono",
-          icon: "fas fa-gas-pump",
+          icon: "fas fa-smog",
           productos: [
             { id: 29, codigo: "029", nombre: "Tubo CO2 7.5m3 (Oxígeno/Argón/Nitrógeno)", precio: 2400000, stock: 25, imagen: "029.jpg" },
             { id: 30, codigo: "030", nombre: "Tubo CO2 6m3 + CO2 25kg", precio: 2200000, stock: 50, imagen: "030.jpg" },
@@ -299,7 +299,7 @@
         "tubos-argon": {
           nombre: "Tubos de Argón",
           descripcion: "Tubos/cilindros para argón",
-          icon: "fas fa-gas-pump",
+         icon: "fas fa-atom",
           productos: [
             { id: 29, codigo: "029", nombre: "Tubo Argón 7.5m3 (Oxígeno/Argón/Nitrógeno)", precio: 2400000, stock: 25, imagen: "029.jpg" },
             { id: 30, codigo: "030", nombre: "Tubo Argón 6m3 + CO2 25kg", precio: 2200000, stock: 50, imagen: "030.jpg" },
