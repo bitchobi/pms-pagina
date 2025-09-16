@@ -161,7 +161,7 @@
         "canerias-cobre": {
           nombre: "Cañerías de Cobre",
           descripcion: "Diferentes medidas para instalaciones",
-           icon: "fas fa-pipe-section",
+           icon: "fas fa-equals",
           productos: [
             { id: 78, codigo: "078", nombre: "Cañería Cobre 3/16", precio: 240000, stock: 50, imagen: "078.jpg" },
             { id: 79, codigo: "079", nombre: "Cañería Cobre 1/4", precio: 255000, stock: 50, imagen: "079.jpg" },
